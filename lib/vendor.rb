@@ -18,4 +18,13 @@ class Vendor
       @inventory[item] += quantity
     end
   end
+
+  def potential_revenue
+    rev = 0
+    @inventory.each do |item|
+      # require 'pry'; binding.pry
+      rev += (item[0].price.gsub("$", "").to_f * item[1])
+    end
+    rev
+  end
 end

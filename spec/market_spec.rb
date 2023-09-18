@@ -70,4 +70,16 @@ RSpec.describe '#Market' do
       expect(@market.vendors_that_sell(@item4)).to eq([@vendor2])
     end
   end
+
+  describe '#Vendor Revenue' do
+    it 'can calculate revenue' do
+      @vendor1.stock(@item1, 35)
+      @vendor1.stock(@item2, 7)
+      @vendor2.stock(@item4, 50) 
+      @vendor2.stock(@item3, 25)
+      @vendor3.stock(@item1, 65)
+
+      expect(@vendor1.potential_revenue).to eq(29.75)
+    end
+  end
 end
