@@ -10,6 +10,7 @@ class Vendor
     @inventory[item]
   end
 
+
   def stock(item, quantity)
     if @inventory[item].nil?
       @inventory[item] = quantity
@@ -17,12 +18,4 @@ class Vendor
       @inventory[item] += quantity
     end
   end
-
-  # def potential_revenue
-  #   revenue = 0
-
-  #   @inventory.each do |item|
-  #     item[:price] * 
-  #   end
-  # end
 end

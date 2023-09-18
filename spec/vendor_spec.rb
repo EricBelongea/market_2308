@@ -21,36 +21,15 @@ RSpec.describe '#Vendor' do
       expect(@vendor.check_stock(@item1)).to eq(nil)
     end
 
-    it 'can add stock to inventory' do
-      @vendor.stock(@item1, 30)
-
-      expect(@vendor.inventory).to eq({@item1 => 30})
-
-      expect(@vendor.check_stock(@item1)).to eq(30)
-    end
-
-    it 'can add same item more than once' do
-      @vendor.stock(@item1, 30)
-
-      @vendor.stock(@item1, 25)
-
-      expect(@vendor.check_stock(@item1)).to eq(55)
-    end
-
-    it 'has multiple items' do
+    it 'can access inventory information' do
       @vendor.stock(@item1, 30)
       @vendor.stock(@item1, 25)
       
       @vendor.stock(@item2, 12)
-      # require 'pry'; binding.pry
+
       expect(@vendor.check_stock(@item1)).to eq(55)
       expect(@vendor.inventory).to eq({@item1 => 55, @item2 => 12})
     end
   end
-
-  describe '#Vendor Revenue' do
-    it 'can calculate rev' do
-
-    end
-  end
 end
+    
