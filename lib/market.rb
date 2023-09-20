@@ -51,4 +51,16 @@ class Market
     end
     hash
   end
+
+  def overstocked_items
+    overstocked = []
+
+    total_inventory.each do |item, details|
+      # require 'pry'; binding.pry
+      if details[:quantity] > 50 && details[:vendors].count > 1
+        overstocked << item
+      end
+    end
+    overstocked
+  end
 end
