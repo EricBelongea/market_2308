@@ -18,7 +18,12 @@ RSpec.describe '#Vendor' do
 
   describe '#Vendor Stock' do
     it 'can check stock' do
-      expect(@vendor.check_stock(@item1)).to eq(nil)
+      expect(@vendor.check_stock(@item1)).to eq(0)
+    end
+
+    it 'vendors inventory has items' do
+      @vendor.stock(@item1, 30)
+      expect(@vendor.inventory).to eq(@item1 => 30) 
     end
 
     it 'can access inventory information' do

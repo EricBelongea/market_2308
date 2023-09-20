@@ -112,7 +112,7 @@ RSpec.describe '#Market' do
       @market.add_vendor(@vendor2)
       @market.add_vendor(@vendor3)
 
-      expect(@market.total_inventory).to eq({})
+      expect(@market.total_inventory[@item1]).to eq({quantity: 100, vendors: [@vendor1, @vendor3]})
     end
   end
 end

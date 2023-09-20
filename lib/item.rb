@@ -3,6 +3,6 @@ class Item
 
   def initialize(hash)
     @name = hash[:name]
-    @price = hash[:price]
+    @price = hash[:price].gsub('$', '').to_f 
   end
 end

@@ -3,7 +3,7 @@ class Vendor
 
   def initialize(name)
     @name = name
-    @inventory = {}
+    @inventory = Hash.new(0)
   end
 
   def check_stock(item)
@@ -12,18 +12,13 @@ class Vendor
 
 
   def stock(item, quantity)
-    if @inventory[item].nil?
-      @inventory[item] = quantity
-    else
-      @inventory[item] += quantity
-    end
+    @inventory[item] += quantity
   end
 
   def potential_revenue
     rev = 0
-    @inventory.each do |item|
-      # require 'pry'; binding.pry
-      rev += (item[0].price.gsub("$", "").to_f * item[1])
+    @inventory.each do |item, quantity|
+      rev += (item.price * quantity)
     end
     rev
   end
